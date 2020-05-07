@@ -17,7 +17,7 @@ def spider(query):
     options = Options()
     options.add_argument('-headless')
 
-    driver = webdriver.Firefox(firefox_profile=profile)
+    driver = webdriver.Firefox(firefox_profile=profile, options=options)
 
     driver.get("https://fitgirl-repacks.site/?s="+query)
     driver.set_window_size(890, 753)
