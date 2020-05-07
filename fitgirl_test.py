@@ -21,6 +21,11 @@ def spider(query):
     driver.get("https://fitgirl-repacks.site/?s="+query)
     driver.set_window_size(890, 753)
     #time.sleep(5)
+    results=driver.find_elements_by_xpath("//h1[@class='entry-title']/a")
+    for result in results:
+        print(result.get_attribute('href'))
+
+    #driver.find_element(By.XPATH, "/html/body/div/div/section/div/article[1]/header/h1/a")
     driver.find_element(By.CSS_SELECTOR, ".entry-title > a").click()
     magnet=driver.find_element(By.CSS_SELECTOR, ".entry-content > ul:nth-child(5) > li:nth-child(1) > a:nth-child(3)").get_attribute("href")
     print(magnet)
